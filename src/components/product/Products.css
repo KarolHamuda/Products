@@ -1,0 +1,9 @@
+.DisplayedProduct {
+    margin-top: 2em;
+    border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    border: 2px solid #bdbdbd;
+    font-size: calc(8px + 2vmin);
+    font-family: 'Lato', sans-serif;
+}
