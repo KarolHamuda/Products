@@ -1,0 +1,9 @@
+.CircleColor {
+    margin-top: 5px;
+    width: calc(30px + 2vmin);
+    height: calc(30px + 2vmin);
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px solid #000000;
+}
