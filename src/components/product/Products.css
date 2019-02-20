@@ -7,3 +7,17 @@
     font-size: calc(8px + 2vmin);
     font-family: 'Lato', sans-serif;
 }
+
+.container {
+    
+    background-color: space-gray;
+    width: 100%;
+  }
+
+  .Body {
+    justify-content: center;
+    display: flex;
+    flex-direction: wrap;
+    
+    text-align: center;
+  }

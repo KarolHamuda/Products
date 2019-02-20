@@ -15,7 +15,7 @@ export default class Products extends Component {
     <myContext.Consumer>
       {(value) => (
         <Container>
-            <Row>
+            <Row className='Body'>
                 {value.state.isLoading ? (
                   <div className='sweet-loading'>
                     <RingLoader
@@ -27,7 +27,7 @@ export default class Products extends Component {
                   </div> 
                 ) : (
                   value.state.products.map((products, i) => (
-                    <Col xs={5} key={i} className='DisplayedProduct' >
+                    <Col xs={12} sm={6} key={i} className='DisplayedProduct' >
                         <ProductAbout 
                           name={products.name} 
                           image={products.image} 

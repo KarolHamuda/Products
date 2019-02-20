@@ -26,25 +26,25 @@ export default class ProductAbout extends Component {
         
       <div>
           { this.state.showAbout ? (
-        <Row onClick={()=> (
-            this.showColorPicker(),
-            console.log('lol')
-        )}>
-            <Col xs={6}>
-                {name}
-                <Image src={image} fluid />
-            </Col>
-            <Col xs={6}>
-                <Row>
-                    <Col xs={12}>
-                        Old Price: {oldPrice}
-                    </Col>
-                    <Col xs={12}>
-                        Current Price: {price}
-                    </Col>
-                </Row>
-            </Col>
-        </Row> 
+            <Row onClick={()=> (
+                this.showColorPicker(),
+                console.log('lol')
+            )}>
+                <Col xs={6}>
+                    {name}
+                    <Image src={image} fluid />
+                </Col>
+                <Col xs={6}>
+                    <Row>
+                        <Col xs={12}>
+                            Old Price: {oldPrice}
+                        </Col>
+                        <Col xs={12}>
+                            Current Price: {price}
+                        </Col>
+                    </Row>
+                </Col>
+            </Row> 
         ) : (
             <ColorPicker {...this.props}/>
         )}
