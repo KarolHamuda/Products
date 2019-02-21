@@ -4,6 +4,7 @@ import CircleColor from './CircleColor';
 import './ColorPicker.css';
 import UserModal from '../user/UserModal';
 import CapacityPicker from './CapacityPicker';
+import myContext from '../context/ContextProvider';
 
 export default class ColorPicker extends Component {
     constructor(...props) {
@@ -16,23 +17,6 @@ export default class ColorPicker extends Component {
             ColorID: null,
             optionsCapacityID: null,
             optionsColorID: null,
-            // finalProductOrder: 
-            // [
-            //     {
-            //         id: this.props.productID,
-            //         options: 
-            //         [
-            //             {
-            //                 id: this.state.optionsCapacityID,
-            //                 value: this.state.CapacityID
-            //             },
-            //             {
-            //                 id: this.state.optionsColorID,
-            //                 value: this.state.ColorID
-            //             }
-            //         ]
-            //     }
-            // ]
         }
     }
 
@@ -109,6 +93,8 @@ render() {
     let modalClose = () => this.setState({ modalShow: false });
 
     return (
+        <myContext.Consumer>
+        {(value) => (
         <div>
             {options.map((options, i) => (
                 Colors(options.name, options.values, options.id)
@@ -129,22 +115,29 @@ render() {
                         <Button
                             variant="primary"
                             size="lg"
-                            onClick={() => this.setState({ modalShow: true })}
+                            onClick={() => (
+                                this.setState({ modalShow: true }),
+                                value.updateProduct(
+                                    productID, 
+                                    this.state.optionsCapacityID, 
+                                    this.state.CapacityID,
+                                    this.state.optionsColorID,
+                                    this.state.ColorID
+                                ))
+                            }
                         >
                             Buy
                         </Button>
 
                         <UserModal
-                            CapacityID={this.state.CapacityID}
-                            ColorID={this.state.ColorID}
-                            optionCapacityID={this.state.optionsCapacityID}
-                            optionColorID={this.state.optionsColorID}
                             show={this.state.modalShow}
                             onHide={modalClose}
                         />
                     </Col>
                 </Row>
         </div>
+        )}
+        </myContext.Consumer>
         );
     }
 }
