@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Modal, Button, Form, Col } from 'react-bootstrap';
+import myContext from '../context/ContextProvider';
 
 export default class UserModal extends Component {
   constructor(props) {
@@ -37,6 +38,9 @@ export default class UserModal extends Component {
 
     render() {
         return (
+          <myContext.Consumer>
+            {(value) => (
+           
           <Modal
             {...this.props}
             size="lg"
@@ -94,11 +98,23 @@ export default class UserModal extends Component {
                 </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-                <Button type='submit' onClick={()=>console.log(this.state)}>Buy</Button>
+                <Button type='submit' onClick={()=>
+                  value.updateUser(
+                    this.state.nameValue, 
+                    this.state.surnameValue, 
+                    this.state.emailValue, 
+                    this.state.streetValue, 
+                    this.state.cityValue, 
+                    this.state.housenumberValue, 
+                    this.state.zipValue
+                  )
+                  }>Buy</Button>
               <Button onClick={this.props.onHide}>Cancel</Button>
             </Modal.Footer>
           </Form>
           </Modal>
+           )}
+           </myContext.Consumer>
         );
       }
 }

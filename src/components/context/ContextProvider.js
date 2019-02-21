@@ -28,8 +28,9 @@ export class ContextProvider extends Component {
 
     getProductDetails = (productID, optionsCapacityID, CapacityID, optionsColorID, ColorID) => {
         this.setState({
-            finalProduct: [
+            finalProduct: 
                 {
+                product: {
                     id: productID,
                     options: 
                     [
@@ -43,22 +44,68 @@ export class ContextProvider extends Component {
                         }
                     ]
                 }
-            ]
+            }
+            
         })
     }
 
+    createFinalOrderDetails = (nameValue, surnameValue, emailValue, streetValue, cityValue, housenumberValue, zipValue) => {
+        let finalProductCopy = {...this.state.finalProduct}
+        console.log(finalProductCopy)
+        this.setState({
+            finalProduct: [
+                finalProductCopy,
+                {
+                user: 
+                    {
+                        name: nameValue,
+                        surname: surnameValue,
+                        email: emailValue,
+                        address: {
+                            street: streetValue,
+                            housenumber: housenumberValue,
+                            city: cityValue,
+                            postcode: zipValue
+                        }
+                    }
+            }
+            
+            ],
+            
+        })
+        this.sendData()
+    }
+
+    sendData = () => {
+        console.log(this.state.finalProduct)
+    }
+
   render() {
-    console.log(this.state.products)
+    
     return (
         <myContext.Provider value={{
             state: this.state,
 
             updateProduct: (productID, optionsCapacityID, CapacityID, optionsColorID, ColorID) => {
-                this.getProductDetails(productID, optionsCapacityID, CapacityID, optionsColorID, ColorID)
+                this.getProductDetails(
+                    productID, 
+                    optionsCapacityID, 
+                    CapacityID, 
+                    optionsColorID, 
+                    ColorID
+                )
             },
 
-            updateUser: () => {
-
+            updateUser: (nameValue, surnameValue, emailValue, streetValue, cityValue, housenumberValue, zipValue) => {
+                this.createFinalOrderDetails(
+                    nameValue, 
+                    surnameValue, 
+                    emailValue, 
+                    streetValue, 
+                    cityValue, 
+                    housenumberValue, 
+                    zipValue
+                )
             }
         }}>
 
