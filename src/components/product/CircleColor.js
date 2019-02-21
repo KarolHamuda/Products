@@ -6,9 +6,19 @@ export default class CircleColor extends Component {
         super(props)
     }
   render() {
-      const { name, setColor } = this.props;
+      const { name, setColor, setColorID, colorID, setOptionsColorID, optionColorID } = this.props;
     return (
-      <button style={{backgroundColor: name}} className='CircleColor' onClick={()=>setColor(name)}/>
+      <button 
+      style={{backgroundColor: name}} 
+      className='CircleColor' 
+      onClick={()=>
+        (
+        setColor(name),
+        setColorID(colorID),
+        setOptionsColorID(optionColorID)
+        )
+      }/>
     )
   }
 }
+  

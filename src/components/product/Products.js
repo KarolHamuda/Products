@@ -35,6 +35,7 @@ export default class Products extends Component {
                           price={products.price} 
                           options={products.options}
                           key={i}
+                          productID={products.id}
                         /> 
                     </Col>
                   ))
