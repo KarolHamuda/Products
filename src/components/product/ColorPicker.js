@@ -17,7 +17,15 @@ export default class ColorPicker extends Component {
             ColorID: null,
             optionsCapacityID: null,
             optionsColorID: null,
+            price: null,
+            colorPriceModifier: null,
+            capacityPriceModifier: null,
+            
         }
+    }
+
+    componentDidMount() {
+        this.setState({price: this.props.price})
     }
 
     setCapacity = (capacity) => this.setState({capacity: capacity})
@@ -31,23 +39,29 @@ export default class ColorPicker extends Component {
     setOptionsColorID = (ID) => this.setState({optionsColorID: ID})
     
     setOptionsCapacityID = (ID) => this.setState({optionsCapacityID: ID})
+
+    setNewPrice = (newPrice) => this.setState({price: newPrice})
     
+    setColorPriceModifier = (newPrice) => this.setState({colorPriceModifier: newPrice})
+
+    setCapacityPriceModifier = (newPrice) => this.setState({capacityPriceModifier: newPrice})
 
     componentDidUpdate() {
         console.log(this.state)
     }
     
 render() {
-    const {options, price, productID} = this.props;
+    const {options, productID} = this.props;
 
     const Colors = (name, values, id) => (
-        console.log(id),
          name === "Color" ? 
         (<Row> { 
         values.map((colors, i) => (
             
             <Col key={i}>
                 <CircleColor 
+                    priceModifier={colors.priceModifier}
+                    setColorPriceModifier={this.setColorPriceModifier}
                     name={colors.name} 
                     colorID={colors.id} 
                     optionColorID={id} 
@@ -66,25 +80,27 @@ render() {
     const Capacity = (name, values, id) => (
         name === "Capacity" ? 
         <Row>
-        <ButtonToolbar aria-label="Toolbar with button groups">
-        <ButtonGroup className="mr-2" aria-label="First group">
-        {(values.map((capacity, i) => (
-            
-            <div>
-                {/* {capacity.name} */}
-                <CapacityPicker 
-                    name={capacity.name} 
-                    capacityID={capacity.id} 
-                    optionCapacityID={id} 
-                    setCapacity={this.setCapacity} 
-                    setCapacityID={this.setCapacityID} 
-                    setOptionsCapacityID={this.setOptionsCapacityID}
-                />
-                </div>
-            
-        )))}
-        </ButtonGroup>
-        </ButtonToolbar>
+            <ButtonToolbar aria-label="Toolbar with button groups">
+                <ButtonGroup className="mr-2" aria-label="First group">
+                    {(values.map((capacity, i) => (
+                        
+                        <div>
+                            {/* {capacity.name} */}
+                            <CapacityPicker 
+                                priceModifier={capacity.priceModifier}
+                                setCapacityPriceModifier={this.setCapacityPriceModifier}
+                                name={capacity.name} 
+                                capacityID={capacity.id} 
+                                optionCapacityID={id} 
+                                setCapacity={this.setCapacity} 
+                                setCapacityID={this.setCapacityID} 
+                                setOptionsCapacityID={this.setOptionsCapacityID}
+                            />
+                            </div>
+                        
+                    )))}
+                </ButtonGroup>
+            </ButtonToolbar>
         </Row> : (
             null
         )
@@ -109,22 +125,23 @@ render() {
                         <div className='Cellphone'/>
                     </Col>
                     <Col xs={3} className='Price'>
-                        ${price}
+                        ${this.state.price + this.state.colorPriceModifier + this.state.capacityPriceModifier}
                     </Col>
                     <Col xs={12}>
                         <Button
                             variant="primary"
                             size="lg"
-                            onClick={() => (
+                            onClick={() => ((
                                 this.setState({ modalShow: true }),
                                 value.updateProduct(
                                     productID, 
                                     this.state.optionsCapacityID, 
                                     this.state.CapacityID,
                                     this.state.optionsColorID,
-                                    this.state.ColorID
-                                ))
-                            }
+                                    this.state.ColorID,
+                                    this.state.price + this.state.colorPriceModifier + this.state.capacityPriceModifier
+                                )
+                            ))}
                         >
                             Buy
                         </Button>

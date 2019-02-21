@@ -20,16 +20,13 @@ export default class ProductAbout extends Component {
       }
 
   render() {
-      const { name, image, oldPrice, price, options } = this.props;
+      const { name, image, oldPrice, price } = this.props;
       
     return (
         
       <div>
           { this.state.showAbout ? (
-            <Row onClick={()=> (
-                this.showColorPicker(),
-                console.log('lol')
-            )}>
+            <Row onClick={()=> this.showColorPicker()}>
                 <Col xs={6}>
                     {name}
                     <Image src={image} fluid />

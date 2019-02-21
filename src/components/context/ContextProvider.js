@@ -26,7 +26,7 @@ export class ContextProvider extends Component {
         }, 1000) 
     }
 
-    getProductDetails = (productID, optionsCapacityID, CapacityID, optionsColorID, ColorID) => {
+    getProductDetails = (productID, optionsCapacityID, CapacityID, optionsColorID, ColorID, priceValue) => {
         this.setState({
             finalProduct: 
                 {
@@ -42,7 +42,8 @@ export class ContextProvider extends Component {
                             id: optionsColorID,
                             value: ColorID
                         }
-                    ]
+                    ],
+                    priceValue
                 }
             }
             
@@ -86,15 +87,16 @@ export class ContextProvider extends Component {
         <myContext.Provider value={{
             state: this.state,
 
-            updateProduct: (productID, optionsCapacityID, CapacityID, optionsColorID, ColorID) => {
+            updateProduct: (productID, optionsCapacityID, CapacityID, optionsColorID, ColorID, priceValue) => (
                 this.getProductDetails(
                     productID, 
                     optionsCapacityID, 
                     CapacityID, 
                     optionsColorID, 
-                    ColorID
+                    ColorID,
+                    priceValue
                 )
-            },
+            ),
 
             updateUser: (nameValue, surnameValue, emailValue, streetValue, cityValue, housenumberValue, zipValue) => {
                 this.createFinalOrderDetails(
