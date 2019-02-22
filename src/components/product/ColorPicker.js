@@ -45,10 +45,6 @@ export default class ColorPicker extends Component {
     setColorPriceModifier = (newPrice) => this.setState({colorPriceModifier: newPrice})
 
     setCapacityPriceModifier = (newPrice) => this.setState({capacityPriceModifier: newPrice})
-
-    componentDidUpdate() {
-        console.log(this.state)
-    }
     
 render() {
     const {options, productID} = this.props;
@@ -57,7 +53,6 @@ render() {
          name === "Color" ? 
         (<Row> { 
         values.map((colors, i) => (
-            
             <Col key={i}>
                 <CircleColor 
                     priceModifier={colors.priceModifier}
@@ -79,14 +74,11 @@ render() {
 
     const Capacity = (name, values, id) => (
         name === "Capacity" ? 
-        
             <ButtonToolbar aria-label="Toolbar with button groups">
                 <ButtonGroup className="mr-2" aria-label="First group">
                 <Row>
                     {(values.map((capacity, i) => (
-                        
                         <Col xs={12}>
-                            {/* {capacity.name} */}
                             <CapacityPicker 
                                 priceModifier={capacity.priceModifier}
                                 setCapacityPriceModifier={this.setCapacityPriceModifier}
@@ -98,7 +90,6 @@ render() {
                                 setOptionsCapacityID={this.setOptionsCapacityID}
                             />
                             </Col>
-                        
                     )))}
                     </Row>
                 </ButtonGroup>

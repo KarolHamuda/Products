@@ -12,19 +12,15 @@ export default class ProductAbout extends Component {
         }
     }
 
-    componentDidMount() {
-        console.log(this.props.options[0].values)
-    }
-
     showColorPicker = () => {
         this.setState({showAbout: !this.state.showAbout})
-      }
+    }
 
   render() {
+
       const { name, image, oldPrice, price } = this.props;
-      
-    return (
-        
+
+    return (  
       <div>
           { this.state.showAbout ? (
             <Row onClick={()=> this.showColorPicker()}>
@@ -47,7 +43,6 @@ export default class ProductAbout extends Component {
             <ColorPicker {...this.props}/>
         )}
       </div> 
-    
     )
   }
 }

@@ -13,10 +13,6 @@ export class ContextProvider extends Component {
         this.fetchData();
     }
 
-    componentDidUpdate() {
-        console.log(this.state.finalProduct)
-    }
-
     fetchData = () => {
         setTimeout(() => {
             this.setState({
@@ -28,8 +24,7 @@ export class ContextProvider extends Component {
 
     getProductDetails = (productID, optionsCapacityID, CapacityID, optionsColorID, ColorID, priceValue) => {
         this.setState({
-            finalProduct: 
-                {
+            finalProduct: {
                 product: {
                     id: productID,
                     options: 
@@ -46,7 +41,6 @@ export class ContextProvider extends Component {
                     priceValue
                 }
             }
-            
         })
     }
 
@@ -57,22 +51,18 @@ export class ContextProvider extends Component {
             finalProduct: [
                 finalProductCopy,
                 {
-                user: 
-                    {
-                        name: nameValue,
-                        surname: surnameValue,
-                        email: emailValue,
-                        address: {
-                            street: streetValue,
-                            housenumber: housenumberValue,
-                            city: cityValue,
-                            postcode: zipValue
-                        }
+                user: {
+                    name: nameValue,
+                    surname: surnameValue,
+                    email: emailValue,
+                    address: {
+                        street: streetValue,
+                        housenumber: housenumberValue,
+                        city: cityValue,
+                        postcode: zipValue
                     }
-            }
-            
+                }}
             ],
-            
         })
         this.sendData()
     }

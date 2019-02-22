@@ -16,12 +16,12 @@ export default class CapacityPicker extends Component {
     } = this.props
     return (
         <Button className='CapacityButton' onClick={()=>
-            (
+            ((
                 setCapacity(name),
                 setCapacityID(capacityID),
                 setOptionsCapacityID(optionCapacityID),
                 setCapacityPriceModifier(priceModifier)
-            )
+            ))
         }>{name}</Button>
     )
   }
