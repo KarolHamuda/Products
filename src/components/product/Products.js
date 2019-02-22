@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import myContext from '../context/ContextProvider';
-import { RingLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 
 import  ProductAbout  from './ProductAbout';
 import './Products.css'
@@ -18,10 +18,10 @@ export default class Products extends Component {
             <Row className='Body'>
                 {value.state.isLoading ? (
                   <div className='sweet-loading'>
-                    <RingLoader
+                    <ClipLoader
                         sizeUnit={"px"}
-                        size={300}
-                        color={'#123abc'}
+                        size={260}
+                        color={'#8b8b8b'}
                         loading={value.state.isLoading}
                     />
                   </div> 
