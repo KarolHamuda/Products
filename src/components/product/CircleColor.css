@@ -7,3 +7,11 @@
     -webkit-border-radius: 200px 200px 200px 200px;
     border: 0px solid #000000;
 }
+
+.CircleColor:hover {
+    border: 1px solid #8f8f8f;
+}
+
+.CircleColor:active {
+    border: 1px solid #8f8f8f;
+}

@@ -79,12 +79,13 @@ render() {
 
     const Capacity = (name, values, id) => (
         name === "Capacity" ? 
-        <Row>
+        
             <ButtonToolbar aria-label="Toolbar with button groups">
                 <ButtonGroup className="mr-2" aria-label="First group">
+                <Row>
                     {(values.map((capacity, i) => (
                         
-                        <div>
+                        <Col xs={12}>
                             {/* {capacity.name} */}
                             <CapacityPicker 
                                 priceModifier={capacity.priceModifier}
@@ -96,12 +97,13 @@ render() {
                                 setCapacityID={this.setCapacityID} 
                                 setOptionsCapacityID={this.setOptionsCapacityID}
                             />
-                            </div>
+                            </Col>
                         
                     )))}
+                    </Row>
                 </ButtonGroup>
             </ButtonToolbar>
-        </Row> : (
+         : (
             null
         )
     );
@@ -116,15 +118,15 @@ render() {
                 Colors(options.name, options.values, options.id)
             ))}
                 <Row>  
-                    <Col xs={3}>
+                    <Col xs={4} sm={4} className='CapacityColumn'>
                     {options.map((options, i) => ( 
                         Capacity(options.name, options.values, options.id)
                     ))}
                     </Col>
-                    <Col xs={6} className='Phone' style={{backgroundColor: this.state.backColor}}>
+                    <Col xs={4} sm={4} className='Phone' style={{backgroundColor: this.state.backColor}}>
                         <div className='Cellphone'/>
                     </Col>
-                    <Col xs={3} className='Price'>
+                    <Col xs={4} sm={4} className='Price'>
                         ${this.state.price + this.state.colorPriceModifier + this.state.capacityPriceModifier}
                     </Col>
                     <Col xs={12}>

@@ -27,7 +27,7 @@ export default class Products extends Component {
                   </div> 
                 ) : (
                   value.state.products.map((products, i) => (
-                    <Col xs={12} sm={6} key={i} className='DisplayedProduct' >
+                    <Col xs={12} sm={12} md={12} key={i} className='DisplayedProduct' >
                         <ProductAbout 
                           name={products.name} 
                           image={products.image} 

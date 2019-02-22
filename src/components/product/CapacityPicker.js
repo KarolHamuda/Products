@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import './CapacityPicker.css';
 
 export default class CapacityPicker extends Component {
   render() {
@@ -14,7 +15,7 @@ export default class CapacityPicker extends Component {
         setCapacity
     } = this.props
     return (
-        <Button onClick={()=>
+        <Button className='CapacityButton' onClick={()=>
             (
                 setCapacity(name),
                 setCapacityID(capacityID),

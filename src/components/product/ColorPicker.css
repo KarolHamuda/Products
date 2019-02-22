@@ -10,18 +10,29 @@
     height: 100%;  
 }
 
+.CapacityColumn {
+    justify-content: center;
+    display: flex;
+    flex-direction: wrap;
+    align-items: center;
+    text-align: center;
+}
+
 .Phone {
     background-color: rgba(1, 93, 136, 0.411);
-
     border-radius: 27px 27px 27px 27px;
     -moz-border-radius: 27px 27px 27px 27px;
     -webkit-border-radius: 27px 27px 27px 27px;
-    border: 5px solid #7a7a7a;
+    border: 1px solid #7a7a7a;
     width: 40%;
     max-height: 100%;
     height: 25vh;
     margin-top: 5px;
     margin-bottom: 10px;
+    -webkit-box-shadow: inset -81px -77px 189px -45px rgba(0,0,0,0.26);
+    -moz-box-shadow: inset -81px -77px 189px -45px rgba(0,0,0,0.26);
+    box-shadow: inset -81px -77px 189px -45px rgba(0,0,0,0.26);
+    transition: background-color 0.4s;
 }
 
 .Price {
@@ -30,6 +41,8 @@
     flex-direction: wrap;
     align-items: center;
     text-align: center;
+    font-size: calc(16px + 2vmin);
+    transition: 0.4s;
 }
 
 .Cellphone {
@@ -37,11 +50,9 @@
     height: 5vmin;
     width: 5vmin;
     margin-top: 5px;
-
     -webkit-box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.4);
     -moz-box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.4);
     box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.4);
-
     border-radius: 200px 200px 200px 200px;
     -moz-border-radius: 200px 200px 200px 200px;
     -webkit-border-radius: 200px 200px 200px 200px;

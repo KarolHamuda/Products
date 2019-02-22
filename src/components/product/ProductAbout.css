@@ -1,0 +1,16 @@
+.PriceDetails {
+    justify-content: center;
+    display: flex;
+    flex-direction: wrap;
+    align-items: center;
+    text-align: center;
+    font-size: calc(12px + 2vmin);
+}
+
+.CurrentPrice {
+    font-size: calc(18px + 2vmin);
+}
+
+.OldPrice {
+    text-decoration: line-through;
+}
